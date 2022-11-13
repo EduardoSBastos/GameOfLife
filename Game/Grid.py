@@ -9,14 +9,14 @@ class Board:
 
 
   def step(self):
-    next_grid = np.zeros([self.width, self.height])
+    next_grid = np.zeros([self.width, self.height]).astype(int)
     for x in range(self.width):
         for y in range(self.height):
             next_grid[x,y] = self._next_step_status(x,y)
     self.grid = next_grid
 
   def show_neighbours(self):
-    neighbour_grid = np.zeros([self.width, self.height])
+    neighbour_grid = np.zeros([self.width, self.height]).astype(int)
     for x in range(self.width):
         for y in range(self.height):
             neighbour_grid[x,y] = self._count_living_neighbours(x,y)
