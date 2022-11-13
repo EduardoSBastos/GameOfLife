@@ -2,7 +2,7 @@ import numpy as np
 
 from Grid import Board
 
-board = Board(10,10)
+board = Board((20,10))
 board.raise_cell(5,5)
 board.raise_cell(5,4)
 board.raise_cell(5,3)

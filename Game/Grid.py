@@ -1,22 +1,23 @@
 import numpy as np
 
 class Board:
-  def __init__(self, height:int, width:int, square_size=10):
-    self.width = width
-    self.height = height
-    self. grid = np.zeros([height, width]).astype(int)
-    print(f'Created grid with size {width} by {height}')
+  def __init__(self, size, square_size=10):
+    self.size = size
+    self.width = size[1]
+    self.height = size[0]
+    self. grid = np.zeros(self.size).astype(int)
+    print(f'Created grid with size {self.width} by {self.height}')
 
 
   def step(self):
-    next_grid = np.zeros([self.width, self.height]).astype(int)
+    next_grid = np.zeros(self.size).astype(int)
     for x in range(self.width):
         for y in range(self.height):
-            next_grid[x,y] = self._next_step_status(x,y)
+            next_grid[y,x] = self._next_step_status(y,x)
     self.grid = next_grid
 
   def show_neighbours(self):
-    neighbour_grid = np.zeros([self.width, self.height]).astype(int)
+    neighbour_grid = np.zeros(self.size).astype(int)
     for x in range(self.width):
         for y in range(self.height):
             neighbour_grid[x,y] = self._count_living_neighbours(x,y)
