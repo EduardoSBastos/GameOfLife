@@ -15,7 +15,7 @@ visual.update(board.grid)
 quitted = False
 while not quitted:
     inp = input()
-    if inp == "q": 
+    if inp == "q":
         quitted = True
         continue
 

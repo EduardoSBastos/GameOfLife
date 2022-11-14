@@ -12,18 +12,24 @@ class Visual:
     self.cell_size = cell_size
     self.innerScreenSize = (grid_size[0]*cell_size[0], grid_size[1]*cell_size[1])
     pygame.init()
-    self.initialize_screen(self.innerScreenSize)
+    self._clear_screen()
+    pygame.display.flip()
 
-
-  def initialize_screen(self, innerScreenSize):
+  def _clear_screen(self):
     self.screen = pygame.display.set_mode(SCREEN_SIZE)
     self.screen.fill(GREY)
-    innerScreenRect = pygame.Rect(30,30, 30+innerScreenSize[0], 30+innerScreenSize[1])
+    innerScreenRect = pygame.Rect(30,30, self.innerScreenSize[0], self.innerScreenSize[1])
     pygame.draw.rect(self.screen, BLACK, innerScreenRect)
-    pygame.display.flip()
 
-
+  def _draw_cell(self, pos):
+    rect = pygame.Rect(pos[0],pos[1],
+                       self.cell_size[0],
+                       self.cell_size[1])
+    pygame.draw.rect(self.screen, WHITE, rect)
+    
   def update(self, grid):
-    self.screen.fill(GREY)
-    pygame.draw.rect(self.screen, WHITE, pygame.Rect(30,30,60,60))
+    self._clear_screen()
+    self._draw_cell((30,30))
+    self._draw_cell((80,150))
     pygame.display.flip()
+
