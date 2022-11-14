@@ -16,7 +16,8 @@ visual = Visual(board.size, (15,15))
 visual.update(board.grid)
 
 counter = 0
-DELTA_TIME = 1/60
+FPS = 60
+clock = pygame.time.Clock()
 
 class Quitter():
     def quit_game(self):
@@ -26,10 +27,10 @@ input = InputHandler()
 input.subToQuitEvent(Quitter().quit_game)
 
 while True:
-    time.sleep(DELTA_TIME)
+    delta_time = clock.tick(FPS)
     input.update()
-
-    counter += 1 * DELTA_TIME
+    print(delta_time)
+    counter += 1 / delta_time
     if counter >= 1:
         board.step()
         visual.update(board.grid)
