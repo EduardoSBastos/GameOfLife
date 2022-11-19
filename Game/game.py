@@ -5,7 +5,7 @@ import pygame
 
 from Grid import Board
 from Visual import Visual
-from InputHandler import InputHandler
+from Utils.InputHandler import InputHandler
 
 board = Board((10,10))
 board.raise_cell(5,5)
@@ -29,7 +29,6 @@ input.subToQuitEvent(Quitter().quit_game)
 while True:
     delta_time = clock.tick(FPS)
     input.update()
-    print(delta_time)
     counter += 1 / delta_time
     if counter >= 1:
         board.step()
