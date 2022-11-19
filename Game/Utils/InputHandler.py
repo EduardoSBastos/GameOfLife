@@ -16,3 +16,6 @@ class InputHandler:
             if event.type == KEYDOWN:
                 if event.type == 768: #Esc
                     self.events.onQuit()
+            if event.type == pygame.MOUSEBUTTONUP:
+                pos = pygame.mouse.get_pos()
+                print(pos)
