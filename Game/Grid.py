@@ -6,7 +6,6 @@ class Board:
     self.width = size[1]
     self.height = size[0]
     self. grid = np.zeros(self.size).astype(int)
-    print(f'Created grid with size {self.width} by {self.height}')
 
 
   def step(self):
