@@ -4,7 +4,7 @@ import time
 import pygame
 
 from Structure.Game import Game
-from Grid import Board
+from GameClasses.Grid import Board
 from Visual import Visual
 from Utils.InputHandler import InputHandler
 
