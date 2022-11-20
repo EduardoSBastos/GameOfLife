@@ -1,14 +1,17 @@
 import numpy as np
+from Structure.GameObj import GameObj
 
-class Board:
-  def __init__(self, size, square_size=10):
+class Board(GameObj):
+  def __init__(self, game, size, square_size=10):
+    self.game = game
     self.size = size
     self.width = size[1]
     self.height = size[0]
     self. grid = np.zeros(self.size).astype(int)
+    super().__init__(self.game)
+    
 
-
-  def step(self):
+  def update(self):
     next_grid = np.zeros(self.size).astype(int)
     for x in range(self.width):
         for y in range(self.height):
