@@ -1,10 +1,12 @@
 from events import Events
 import pygame
 from pygame.locals import *
+from Structure.GameObj import GameObj
 
-class InputHandler:
-    def __init__(self):
+class InputHandler(GameObj):
+    def __init__(self, game):
         self.events = Events()
+        super().__init__(game)
     
     def subToQuitEvent(self, objMethod):
         self.events.onQuit += objMethod
