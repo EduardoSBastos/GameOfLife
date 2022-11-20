@@ -1,6 +1,3 @@
-import sys
-import numpy as np
-import time
 import pygame
 
 from Structure.Game import Game
