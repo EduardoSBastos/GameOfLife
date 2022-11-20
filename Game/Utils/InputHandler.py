@@ -12,12 +12,20 @@ class InputHandler(GameObj):
         self.events.onQuit += objMethod
 
     def update(self):
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT: 
-                self.events.onQuit()
-            if event.type == KEYDOWN:
-                if event.type == 768: #Esc
-                    self.events.onQuit()
+        for event in pygame .event.get():
+            if event.type == pygame.KEYDOWN:
+                match event.key:
+                    case pygame.QUIT:
+                        self.events.onQuit()
+                    case pygame.K_ESCAPE:
+                        self.events.onQuit()
+                    case pygame.K_SPACE:
+                        self.events.onPauseButton()
+                        print('Pause pressed')
+                    case _:
+                        continue
             if event.type == pygame.MOUSEBUTTONUP:
                 pos = pygame.mouse.get_pos()
+                self.events.onLeftMouseClick(pos)
                 print(pos)
+            
