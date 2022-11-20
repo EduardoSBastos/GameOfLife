@@ -3,11 +3,14 @@ import numpy as np
 import time
 import pygame
 
+from Structure.Game import Game
 from Grid import Board
 from Visual import Visual
 from Utils.InputHandler import InputHandler
 
-board = Board((10,10))
+game = Game()
+
+board = Board(game, (10,10))
 board.raise_cell(5,5)
 board.raise_cell(5,4)
 board.raise_cell(5,3)
@@ -31,8 +34,7 @@ while True:
     input.update()
     counter += 1 / delta_time
     if counter >= 1:
-        board.step()
+        game.update()
         visual.update(board.grid)
         counter = 0
 
-    
