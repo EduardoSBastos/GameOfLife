@@ -21,12 +21,8 @@ counter = 0
 FPS = 60
 clock = pygame.time.Clock()
 
-class Quitter():
-    def quit_game(self):
-        sys.exit()
-
 input = InputHandler()
-input.subToQuitEvent(Quitter().quit_game)
+input.subToQuitEvent(game.quit_game)
 
 while True:
     delta_time = clock.tick(FPS)

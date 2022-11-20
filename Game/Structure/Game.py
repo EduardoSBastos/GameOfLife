@@ -1,3 +1,4 @@
+import sys
 from events import Events
 
 class Game():
@@ -9,3 +10,6 @@ class Game():
 
     def subscribeToUpdate(self, objMethod):
         self.events.onUpdate += objMethod
+    
+    def quit_game(self):
+        sys.exit()
