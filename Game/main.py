@@ -17,12 +17,12 @@ board.raise_cell(5,3)
 
 visual = Visual(game, board, (10,10))
 
+input = InputHandler(game)
+input.subToQuitEvent(game.quit_game)
+
 counter = 0
 FPS = 60
 clock = pygame.time.Clock()
-
-input = InputHandler(game)
-input.subToQuitEvent(game.quit_game)
 
 while True:
     delta_time = clock.tick(FPS)
